@@ -3,13 +3,12 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demo_angular": {
+    "tp_angular_correction": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss", "type": "component"
-        },
-        "@schematics/angular:service": { "type": "service" }
+        }
       },
       "root": "",
       "sourceRoot": "src",
@@ -68,10 +67,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "demo_angular:build:production"
+              "buildTarget": "tp_angular_correction:build:production"
             },
             "development": {
-              "buildTarget": "demo_angular:build:development"
+              "buildTarget": "tp_angular_correction:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -101,8 +100,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

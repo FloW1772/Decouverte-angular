@@ -1,0 +1,8 @@
+<p>person-list works!</p>
+<button class="uk-button uk-button-primary">Primary</button>
+
+  <ul>
+    @for (person of persons; track person){
+      <li>{{ person.pseudo }} - {{person.age}} | Prix : {{person.price}}$</li>
+    }
+  </ul>
