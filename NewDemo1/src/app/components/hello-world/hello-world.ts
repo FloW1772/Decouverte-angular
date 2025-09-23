@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './hello-world.css'
 })
 export class HelloWorld {
+  readonly title: string = "Hello World";
 
 }

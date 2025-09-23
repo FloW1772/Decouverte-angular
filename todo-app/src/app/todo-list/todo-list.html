@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>📝 Ma TodoList</h2>
+
+  <!-- Ajouter une tâche -->
+  <input 
+    type="text" 
+    [(ngModel)]="newTask" 
+    placeholder="Nouvelle tâche"
+    (keyup.enter)="addTodo()"
+  />
+  <button (click)="addTodo()">Ajouter</button>
+
+  <!-- Liste des tâches -->
+  <ul>
+    <li *ngFor="let todo of todos">
+      <!-- Mode édition -->
+      <div *ngIf="editingTaskId === todo.id; else viewMode">
+        <input [(ngModel)]="editedTitle" />
+        <button (click)="saveEdit(todo)">💾</button>
+        <button (click)="cancelEdit()">❌</button>
+      </div>
+
+      <!-- Mode affichage -->
+      <ng-template #viewMode>
+        <span 
+          [ngClass]="{'completed': todo.completed}"
+          (click)="toggleCompletion(todo)"
+        >
+          {{ todo.title | uppercase }}
+        </span>
+        <button (click)="editTodo(todo)">✏️</button>
+        <button (click)="deleteTodo(todo)">🗑️</button>
+      </ng-template>
+    </li>
+  </ul>
+</div>

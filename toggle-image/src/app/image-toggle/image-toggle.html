@@ -1,0 +1,9 @@
+<div class="container">
+  <button (click)="toggleImage()">
+    {{ showImage ? 'Masquer l\'image' : 'Afficher l\'image' }}
+  </button>
+
+  <div *ngIf="showImage" class="image-box">
+    <img src="https://angular.io/assets/images/logos/angular/angular.png" alt="Angular Logo">
+  </div>
+</div>
