@@ -1,0 +1,58 @@
+.movie-card {
+  position: relative;
+  width: 450px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  margin: 20px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: flex-end;
+
+  .overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 20px;
+    width: 100%;
+    color: white;
+
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .info {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .duration {
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .stars {
+      margin: 8px 0;
+
+      i {
+        color: gold;
+        margin-right: 3px;
+        font-size: 16px;
+      }
+    }
+
+    .genre {
+      font-style: italic;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .synopsis {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+  }
+}

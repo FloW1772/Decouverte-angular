@@ -1,0 +1,79 @@
+
+nav {
+  background-color: #2d2d2d; // Fond sombre
+  padding: 1rem 0;
+
+  .uk-navbar-item.uk-logo {
+    color: #ffffff; // Texte blanc
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    display: block;
+
+    &:hover {
+      color: #cccccc; // Légère variation au survol
+      text-decoration: none;
+    }
+  }
+
+  .uk-navbar-left {
+    width: 100%;
+    display: flex;
+    justify-content: center; // Centre horizontalement
+  }
+}
+footer {
+  background-color: #1a1a1a; // Fond principal sombre
+  color: #ffffff;
+
+  .uk-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  h4 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  // Style des icônes de réseaux sociaux
+  .uk-icon-button {
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #555;
+    }
+  }
+
+  // Zone inférieure de copyright
+  .uk-section-xsmall {
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 1rem 0;
+
+    .uk-text-muted {
+      color: #cccccc;
+    }
+  }
+
+  // Responsive alignment
+  .uk-text-left\s {
+    @media (min-width: 640px) {
+      text-align: left;
+    }
+  }
+
+  .uk-text-center {
+    text-align: center;
+  }
+}
+
+h2{
+  text-align: center;
+  font-weight: bold;
+
+
+}
+

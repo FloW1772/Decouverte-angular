@@ -1,0 +1,24 @@
+<div>
+  @for (person of movies; track person.title) {
+    <div class="movie-card" [style.background-image]="'url(' + person.cover + ')'">
+      <div class="overlay">
+        <h2 class = "titre">{{ person.title }}</h2>
+        <p class="info">{{ person.year }}, {{ person.author }}</p>
+        <p class="duration">{{ person.duration }} min</p>
+
+        <div class="stars">
+          @for (i of [0,1,2,3,4]; track i) {
+            <i class="fa"
+               [class.fa-star]="i < person.rating"
+               [class.fa-star-o]="i >= person.rating">
+            </i>
+          }
+
+        </div>
+
+        <p class="genre">{{ person.genre }}</p>
+        <p class="synopsis">{{ person.synopsis }}</p>
+      </div>
+    </div>
+  }
+</div>
