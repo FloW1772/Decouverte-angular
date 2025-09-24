@@ -1,9 +1,10 @@
+// src/app/todo-list/todo-list.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from '../highlight.directive';
 import { TaskPipe } from '../task.pipe';
-import { TodoService, Task } from '../todo'; // ✅ import du service et de Task
+import { TodoService, Task } from '../todo';
 
 @Component({
   selector: 'app-todo-list',
@@ -13,13 +14,18 @@ import { TodoService, Task } from '../todo'; // ✅ import du service et de Task
     <div>
       <h2>Liste des tâches</h2>
       <ul>
-        <li *ngFor="let task of tasks" appHighlight>
+        <!-- utilisation directe du signal avec () -->
+        <li *ngFor="let task of todoService.tasks()"
+            appHighlight>
           {{ task.title | taskPipe }}
           <button (click)="editTask(task)">Modifier</button>
           <button (click)="deleteTask(task.id)">Supprimer</button>
         </li>
       </ul>
-      <input type="text" [(ngModel)]="newTaskTitle" placeholder="Nouvelle tâche">
+
+      <input type="text"
+             [(ngModel)]="newTaskTitle"
+             placeholder="Nouvelle tâche">
       <button (click)="addTask()">Ajouter une tâche</button>
 
       <div *ngIf="taskToEdit">
@@ -32,41 +38,35 @@ import { TodoService, Task } from '../todo'; // ✅ import du service et de Task
   `
 })
 export class TodoList {
-  tasks: Task[] = [];           // ✅ plus d'initialisation manuelle ici
   newTaskTitle: string = '';
   taskToEdit: Task | null = null;
 
-  constructor(private todoService: TodoService) {
-    // ✅ récupération initiale des tâches depuis le service
-    this.tasks = this.todoService.getTasks();
-  }
+  // ✅ On garde le service en public pour utiliser tasks() dans le template
+  constructor(public todoService: TodoService) {}
 
-  addTask() {
+  addTask(): void {
     if (this.newTaskTitle.trim()) {
-      this.todoService.addTask(this.newTaskTitle); // ✅ passe par le service
+      this.todoService.addTask(this.newTaskTitle);
       this.newTaskTitle = '';
-      this.tasks = this.todoService.getTasks();    // rafraîchit l'affichage
     }
   }
 
-  deleteTask(id: number) {
-    this.todoService.deleteTask(id);               // ✅ passe par le service
-    this.tasks = this.todoService.getTasks();
+  deleteTask(id: number): void {
+    this.todoService.deleteTask(id);
   }
 
-  editTask(task: Task) {
+  editTask(task: Task): void {
     this.taskToEdit = { ...task };
   }
 
-  updateTask() {
+  updateTask(): void {
     if (this.taskToEdit) {
-      this.todoService.updateTask(this.taskToEdit); // ✅ passe par le service
+      this.todoService.updateTask(this.taskToEdit);
       this.taskToEdit = null;
-      this.tasks = this.todoService.getTasks();
     }
   }
 
-  cancelEdit() {
+  cancelEdit(): void {
     this.taskToEdit = null;
   }
 }
