@@ -1,0 +1,14 @@
+<p>products works!</p>
+<nav>
+    <ul>
+        @defer (on timer (2000ms)) {
+            @for (product of products; track product.id) {
+                <li><a routerLink="/products/{{ product.id }}">Product {{ product.title }}</a></li>
+            } @empty {
+                <li>Aucun produit</li>
+            }
+        } @placeholder {
+            <li>Loading...</li>
+        }
+    </ul>
+</nav>
