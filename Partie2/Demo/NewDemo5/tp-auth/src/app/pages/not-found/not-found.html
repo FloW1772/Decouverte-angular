@@ -1,0 +1,48 @@
+<div class="min-h-screen flex items-center justify-center bg-base-200 px-4">
+  <div class="text-center max-w-lg">
+    <!-- 404 Illustration -->
+    <div class="mb-8">
+      <div class="text-9xl font-bold text-primary/20">404</div>
+    </div>
+
+    <!-- Error Message -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold mb-4">Page non trouvée</h1>
+      <p class="text-lg text-base-content/60 mb-4">
+        Désolé, la page que vous cherchez n'existe pas ou a été déplacée.
+      </p>
+      <p class="text-base-content/60">
+        Vous pouvez retourner à l'accueil ou utiliser la navigation pour trouver ce que vous cherchez.
+      </p>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a routerLink="/home" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        Retour à l'accueil
+      </a>
+
+      <button onclick="history.back()" class="btn btn-outline">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Page précédente
+      </button>
+    </div>
+
+    <!-- Helpful Links -->
+    <div class="mt-12">
+      <p class="text-sm text-base-content/60 mb-4">Ou explorez ces liens :</p>
+      <div class="flex flex-wrap gap-2 justify-center">
+        <a routerLink="/contact" class="link link-hover">Contact</a>
+        <span class="text-base-content/30">•</span>
+        <a routerLink="/register" class="link link-hover">S'inscrire</a>
+        <span class="text-base-content/30">•</span>
+        <a routerLink="/login" class="link link-hover">Se connecter</a>
+      </div>
+    </div>
+  </div>
+</div>

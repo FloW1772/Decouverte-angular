@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <div class="nav-brand">
+    <a routerLink="/home">TP Auth</a>
+  </div>
+
+  <div class="nav-links">
+    <a routerLink="/home" routerLinkActive="active">Accueil</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+
+    @if (!isLoggedIn()) {
+      <a routerLink="/register" routerLinkActive="active">S'inscrire</a>
+      <a routerLink="/login" routerLinkActive="active">Se connecter</a>
+    }
+
+    @if (isLoggedIn()) {
+      <a routerLink="/profil" routerLinkActive="active">Profil</a>
+      <button (click)="logout()" class="logout-btn">Déconnexion</button>
+    }
+  </div>
+</nav>
