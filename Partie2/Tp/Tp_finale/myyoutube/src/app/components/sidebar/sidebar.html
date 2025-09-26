@@ -1,1 +1,22 @@
-<p>sidebar works!</p>
+<aside class="sidebar">
+<div *ngIf="user; else guest">
+<div class="profile">
+<div class="avatar">{{ user.username[0]?.toUpperCase() }}</div>
+<div>
+<div class="name">{{ user.username }}</div>
+<div class="email">{{ user.email }}</div>
+</div>
+</div>
+
+
+<div class="playlists">
+<h4>Playlists</h4>
+<ul>
+<li *ngFor="let p of playlists">{{ p.name }} ({{ p.videos.length }})</li>
+</ul>
+</div>
+</div>
+<ng-template #guest>
+<p>Connectez-vous pour gérer vos playlists.</p>
+</ng-template>
+</aside>

@@ -1,1 +1,18 @@
-<p>header works!</p>
+<header class="topbar">
+  <div class="brand" (click)="goHome()">
+    <img src="/assets/logo.svg" alt="MyYoutube" class="logo" />
+    <span class="title">MyYoutube</span>
+  </div>
+
+  <div class="actions">
+    <ng-container *ngIf="(user$ | async) as user; else loggedOut">
+      <span class="username">{{ user['username'] }}</span>
+      <button (click)="logout()">Se déconnecter</button>
+    </ng-container>
+
+    <ng-template #loggedOut>
+      <a routerLink="/auth/login">Se connecter</a>
+      <a routerLink="/auth/register">S'inscrire</a>
+    </ng-template>
+  </div>
+</header>
