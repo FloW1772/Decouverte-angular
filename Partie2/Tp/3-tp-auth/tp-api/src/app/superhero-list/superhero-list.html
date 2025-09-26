@@ -1,0 +1,11 @@
+<div *ngIf="loading">Chargement des super-héros...</div>
+
+<div *ngIf="!loading" class="heroes-container">
+  <div *ngFor="let hero of heroes" class="hero-card">
+    <img [src]="hero.images.sm" [alt]="hero.name" />
+    <h3>{{ hero.name }}</h3>
+    <p><strong>Intelligence:</strong> {{ hero.powerstats.intelligence }}</p>
+    <p><strong>Force:</strong> {{ hero.powerstats.strength }}</p>
+    <p><strong>Vitesse:</strong> {{ hero.powerstats.speed }}</p>
+  </div>
+</div>
